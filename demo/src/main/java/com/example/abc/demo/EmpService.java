@@ -31,11 +31,11 @@ public class EmpService {
         List<Employee> empList = null;
         if(name.isEmpty()) {
             if (!toSalary.isEmpty() && fromSalary.isEmpty()) {
-                empList = empRepo.findByJoinDateLessThanEqual(toSalary);
+                empList = empRepo.findBySalaryLessThanEqual(toSalary);
             } else if (toSalary.isEmpty() && !fromSalary.isEmpty()) {
-                empList = empRepo.findByJoinDateGreaterThanEqual(fromSalary);
+                empList = empRepo.findBySalaryGreaterThanEqual(fromSalary);
             } else if (!toSalary.isEmpty() && !fromSalary.isEmpty()) {
-                empList = empRepo.findByJoinDateGreaterThanEqualAndJoinDateLessThanEqual(fromSalary, toSalary);
+                empList = empRepo.findBySalaryGreaterThanEqualAndSalaryLessThanEqual(fromSalary, toSalary);
             }
         } else if (!name.isEmpty()){
             empList = empRepo.findByFirstNameOrLastName(name,name);
