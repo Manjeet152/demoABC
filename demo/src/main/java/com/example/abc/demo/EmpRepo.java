@@ -9,11 +9,11 @@ import java.util.List;
 public interface EmpRepo extends JpaRepository<Employee, Integer> {
 
 
-    List<Employee> findByJoinDateLessThanEqual(String toSalary);
+    List<Employee> findBySalaryLessThanEqual(String toSalary);
 
-    List<Employee> findByJoinDateGreaterThanEqual(String fromSalary);
+    List<Employee> findBySalaryGreaterThanEqualAndSalaryLessThanEqual(String fromSalary, String toSalary);
 
-    List<Employee> findByJoinDateGreaterThanEqualAndJoinDateLessThanEqual(String fromSalary, String toSalary);
+    List<Employee> findBySalaryGreaterThanEqual(String fromSalary);
 
     List<Employee> findByFirstNameOrLastName(String name, String name1);
 }
